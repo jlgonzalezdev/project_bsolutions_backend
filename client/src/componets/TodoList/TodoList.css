@@ -1,0 +1,19 @@
+.list{
+    margin:10px;
+    background-color: rgb(45, 198, 245) ;  
+    color: rgb(25, 104, 128);
+    display: inline-block;
+}
+
+.bgGray{
+    background-color: darkgray;
+}
+
+.bgBlue{
+    background-color: #2f69d4;
+}
+.btnCustom{
+    color: white;
+    border: 1px solid;
+    border-radius: 15px;
+}

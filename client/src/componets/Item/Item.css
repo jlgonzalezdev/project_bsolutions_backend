@@ -1,0 +1,15 @@
+.Item{
+    font-size: large;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.hidden{
+    display: none;
+}
+
+.itemDone{
+    background-color: #83ff83;
+}

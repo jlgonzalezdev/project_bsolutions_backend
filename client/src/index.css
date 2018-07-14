@@ -1,5 +1,11 @@
 body {
   margin: 0;
-  padding: 0;
+  /* padding: 50px; */
   font-family: sans-serif;
+  background-color: rgb(121, 236, 252);
+}
+
+#root{
+  /* display: flex;
+  justify-content: center; */
 }

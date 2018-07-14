@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+ 
 }
 
 .App-logo {
@@ -12,6 +12,7 @@
   height: 150px;
   padding: 20px;
   color: white;
+  text-align: center;
 }
 
 .App-title {
@@ -25,4 +26,16 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+.bgGray{
+  background-color: darkgray;
+}
+
+.bgBlue{
+  background-color: #2f69d4;
+}
+.btnCustom{
+  color: white;
+  border: 1px solid;
+  border-radius: 15px;
 }

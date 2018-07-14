@@ -21,16 +21,8 @@ const options = {
   }
 };
 var dbUrl = 'mongodb://root:root123@ds235431.mlab.com:35431/todolist_bertoni';
-mongoose.connect(dbUrl, options
 
-); 
-
-app.use('/*', function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,Authorization,appversion");
-  res.header("Access-Control-Expose-Headers", "updatedisp");
-  next();
-});
+mongoose.connect(dbUrl, options);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,27 +32,24 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 
 
 app.use('/tasks', tasksRouter);
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
 
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname+'/client/build/index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+ });
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
