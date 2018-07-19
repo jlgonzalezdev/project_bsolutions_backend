@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/fontawesome-free/css/all.css'
 import { TodoList } from './componets/TodoList/TodoList'
 import TaskService from "./services/taskService";
+
+
 class App extends Component {
 
   constructor(props) {
@@ -17,10 +19,16 @@ class App extends Component {
     
   }
 
+
   componentDidMount() {
+    this.loadTasks();
+  }
+  
+
+  loadTasks() {
     TaskService.getAll().then((response) => {
-      var items = response.data.tasks
-      if(!items)
+      var items = response.data.tasks;
+      if (!items)
         items = [];
       this.setState({
         lists: [{
@@ -30,7 +38,6 @@ class App extends Component {
       });
     });
   }
-  
 
   render() {
     var listsJSX = this.state.lists.map((lst) => {

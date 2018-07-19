@@ -19,7 +19,6 @@ export default class Item extends React.Component {
     }
 
     toggleDone(e) {
-
         this.setState({ isDone: !this.state.isDone }, () => {
             this.props.updateItem(this.props.item, this.state.itemText, this.state.isDone);
         });
@@ -45,15 +44,15 @@ export default class Item extends React.Component {
         return (<div className={this.state.isDone ? 'Item itemDone' : 'Item'}>
             <div className="row">
                 <div className="col-8">
-                    <div className={this.state.isEditing ? 'hidden' : ''} onClick={this.toggleEdit}>
+                    <div id="itemText" className={this.state.isEditing ? 'hidden' : ''} onClick={this.toggleEdit}>
                         <span className="fas fa-edit" style={{ padding: 5,fontSize:'small' }} ></span>
                         {this.state.itemText}
                     </div>
-                    <div className={this.state.isEditing ? '' : 'hidden'}>
+                    <div  id="itemTextEdit"className={this.state.isEditing ? '' : 'hidden'}>
                         <input type="text" style={{ width: '100%' }} value={this.state.itemText} onChange={this.updateItem}></input>
                         <div className="row" style={{ padding: 20 }}>
-                            <button style={{ margin: 5, fontSize: 'small' }} onClick={this.saveEdit}>Ok</button>
-                            <button style={{ margin: 5, fontSize: 'small' }} onClick={this.cancelEdit}>Cancelar</button>
+                            <button id="okBtn" style={{ margin: 5, fontSize: 'small' }} onClick={this.saveEdit}>Ok</button>
+                            <button id="cancelBtn" style={{ margin: 5, fontSize: 'small' }} onClick={this.cancelEdit}>Cancelar</button>
                         </div>
                     </div>
                 </div>
